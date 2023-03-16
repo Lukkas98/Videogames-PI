@@ -20,27 +20,26 @@ export default function Detail(){
 
     //Pruebas------------------------------------------------------------
     const [typingText, setTypingText] = useState("");
+    const [isTyping, setIsTyping] = useState(false);
 
-    useEffect(() => {
-        let i = 1;
+    function typeWriter(i) {
         const speed = 15;
-      
-        function typeWriter() {
-          if (i < game.description.length) {
+        if (i < game.description.length) {
             setTypingText(prevText => prevText + game.description.charAt(i));
             i++;
-            setTimeout(typeWriter, speed);
-          }
+            setTimeout(() => typeWriter(i), speed);
+        } else {
+            setIsTyping(false);
         }
-      
-        game.description ? typeWriter() : setTypingText("");
-      
-        return () => {
-            clearTimeout();
-            setTypingText("");
-        };
-    }, [game]);
-    
+    }
+
+    function startTyping() {
+        setTypingText("");
+        setIsTyping(true);
+        typeWriter(1);
+    }
+
+
     const descriptionHTML = { __html: typingText };
     //---------------------------------------------------------------------
 
@@ -73,7 +72,11 @@ export default function Detail(){
                                 }                           
                             </div>   
                             
-                            <p className="description"><span id="text" dangerouslySetInnerHTML={descriptionHTML}></span></p>
+                            <div className="description">
+                                {!isTyping && !typingText && <div className="btnDetail" onClick={startTyping}>See Description</div>}
+                                <span id="text" dangerouslySetInnerHTML={descriptionHTML}>
+                                </span>
+                            </div>
                             <p>Release Date: {game.releaseDate}</p>
                             <p>Game Rating: {game.rating}</p>
                         </>

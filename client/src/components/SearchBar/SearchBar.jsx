@@ -18,7 +18,7 @@ export default function SearchBar({ searchGame }){
                 <NavLink className="links" to="/create" >create game</NavLink>
             </div>
             <div className="searchBar">
-                <input className="inputSearch" type="text" onChange={onChange} placeholder="Hola" />
+                <input className="inputSearch" type="text" onChange={onChange} placeholder="search a game" />
                 <button className="btnSearch" onClick={(e)=>{
                     searchGame(videogame);
                     e.target.value = "";

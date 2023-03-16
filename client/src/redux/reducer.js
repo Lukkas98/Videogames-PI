@@ -2,9 +2,7 @@ import {  GET_ALLGAMES, CREATE_GAME, GET_GENRES, ORDER, FILTER, SEARCH } from ".
 
 const initialState = {
     allVideogames: [],
-    gamesCreated: [],
     allGenres: [],
-    gamesSearch: [],
     gamesFiltered: []
 }
 
@@ -19,7 +17,6 @@ export default function reducer (state = initialState, { type, payload }){
         case CREATE_GAME:
             return{
                 ...state,
-                gamesCreated: [...state.gamesCreated, payload],
                 allVideogames: [...state.allVideogames, payload]
             }
         
@@ -29,9 +26,16 @@ export default function reducer (state = initialState, { type, payload }){
                 allGenres: payload
             }
         case SEARCH:
-            return{
-                ...state,
-                gamesSearch: [...payload]
+            if (payload[0].error) {
+                return{
+                    ...state,
+                    gamesFiltered: payload
+                }
+            }else{
+                return{
+                    ...state,
+                    gamesFiltered: [...payload]
+                }
             }
         case FILTER:
             if(payload === "all") {

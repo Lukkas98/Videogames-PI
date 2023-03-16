@@ -26,11 +26,11 @@ export default function Form(){
     const [ errors, setErrors ] = useState({...objForState});
 
     const handleInputChange = (e)=>{
-        setErrors((validate(gameData)));
         setGameData({
-           ...gameData,
-           [e.target.name] : e.target.value
+            ...gameData,
+            [e.target.name] : e.target.value
         })
+        setErrors((validate(gameData)));
     }
 
     //estado
@@ -88,7 +88,7 @@ export default function Form(){
                     
                     <input onChange={handleInputChange} type="text" name="name" placeholder="Name" autoComplete="off" value={gameData.name}/>
                     
-                    {errors.gamename && <span>{errors.name}</span>}
+                    {errors.name && <span>{errors.name}</span>}
                     
                     <input onChange={handleInputChange} type="text" name="description" placeholder="description" autoComplete="off" value={gameData.description} />
                     
@@ -131,7 +131,13 @@ export default function Form(){
                     
                     {gameData.genres && <span className="dataSpan">{gameData.genres + " "}</span>}
                     
-                    <button type="submit">Create</button>
+                    {
+                        errors.name || errors.description || errors.genres || errors.platforms || errors.rating || errors.releaseDate ? (  
+                            <button disabled >Please Complete Form</button>
+                        ) : (
+                            <button type="submit">Create</button>
+                        )
+                    }
                     <p>{info}</p>
                 </form>
             </div>

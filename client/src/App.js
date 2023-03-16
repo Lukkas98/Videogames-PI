@@ -7,9 +7,9 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterGames, getAllGames, getAllGenres, orderGames, searchByName } from './redux/actions.js';
 import Landing from './components/Landing/Landing.jsx';
+import Error404 from './components/Error404/Error404.jsx';
 
 import imageLanding from "./assets/images/FondoLanding.jpg"
-import Error404 from './components/Error404/Error404.jsx';
 
 function App() {
   let body = document.querySelector("body");
@@ -19,7 +19,6 @@ function App() {
   const { pathname } = useLocation();
 
   const allGames = useSelector(state => state.allVideogames);
-  const gamesFilterName = useSelector(state => state.gamesSearch);
   const gamesFiltered = useSelector(state => state.gamesFiltered);
   
   const [videogames, setVideogames] = useState(null);
@@ -33,36 +32,23 @@ function App() {
   useEffect(() => {
     if (allGames.length > 0) {
       setVideogames(allGames);
+      dispatch(filterGames("all"))
     }
-  }, [allGames]);
-  
-  useEffect( ()=>{
-    if (videogames !== null && gamesFilterName.length) {
-      setVideogames(gamesFilterName)
-    }else if(videogames !== null && !gamesFilterName.length){
-      setError(true)
-    }
-  }, [gamesFilterName, videogames]);
+  }, [allGames, dispatch]);
+
 
   useEffect(()=>{ 
     if (videogames !== null && gamesFiltered.length) {
-      setVideogames(gamesFiltered)  
-    }else if(videogames !== null && !gamesFiltered.length){
-      setError(true)
-    }
-  }, [gamesFiltered, videogames])
-
-  useEffect(()=>{
-    if (videogames !== null) {
-      if (videogames[0] && videogames[0].error) setError(true)
+      if (gamesFiltered[0].error) setError(true)
       else setError(false)
+      setVideogames(gamesFiltered)
     }
-    else setError(false)
-  }, [videogames])
+    else if(videogames !== null && !gamesFiltered.length) setError(true)
+
+  }, [gamesFiltered, videogames])
 
   const searchGame = (name)=>{
     dispatch(searchByName(name))
-    setVideogames(gamesFilterName)
   }
 
   const filter = (value)=>{
@@ -79,7 +65,7 @@ function App() {
       }
       
       <Routes>
-        <Route path="*" element={<Error404/>} />
+        <Route path="*" element={<Error404 />} />
         <Route path='/' element={<Landing />} />
         <Route path="/home" element={<HomePage videogames={videogames} filter={filter} order={order} error={error}/>}/>
         <Route path='/create' element={<Form />}/>
