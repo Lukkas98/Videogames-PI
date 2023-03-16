@@ -41,7 +41,7 @@ function App() {
     }else if(videogames !== null && !gamesFilterName.length){
       setError(true)
     }
-  }, [gamesFilterName]);
+  }, [gamesFilterName, videogames]);
 
   useEffect(()=>{ 
     if (videogames !== null && gamesFiltered.length) {
@@ -49,7 +49,7 @@ function App() {
     }else if(videogames !== null && !gamesFiltered.length){
       setError(true)
     }
-  }, [gamesFiltered])
+  }, [gamesFiltered, videogames])
 
   useEffect(()=>{
     if (videogames !== null) {
