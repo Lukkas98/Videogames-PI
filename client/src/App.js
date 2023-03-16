@@ -62,6 +62,7 @@ function App() {
 
   const searchGame = (name)=>{
     dispatch(searchByName(name))
+    setVideogames(gamesFilterName)
   }
 
   const filter = (value)=>{
