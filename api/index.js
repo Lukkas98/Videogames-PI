@@ -19,14 +19,15 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+const PORT = process.env.PORT || 3001
 const cors = require("cors");
 const { addGenresToBasedata } = require('./src/controllers/getGenres.js');
 
 server.use(cors())
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, async () => {
+  server.listen(PORT, async () => {
     await addGenresToBasedata()
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
   });
 });
