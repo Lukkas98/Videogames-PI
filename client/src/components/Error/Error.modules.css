@@ -1,0 +1,13 @@
+.divError{
+    border-radius: 20px;
+    font-size: 25px;
+    display: flex;
+    text-align: center;
+    margin: 10px 250px;
+    background: #0a2463cc;
+    color: #ef3535;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

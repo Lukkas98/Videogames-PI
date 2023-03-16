@@ -1,0 +1,103 @@
+.img{
+    width: 300px;
+    margin: 20px;
+    border-radius: 30px;
+    outline: 1px solid black;
+    transition: all 1s;
+}
+.img:hover{
+    transform: scale(1.5);
+    outline: 2px solid #324ba3;
+}
+
+.divDetail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 700px;
+    margin: 10px 50px;
+    background: #1f1f92da;
+    color: #ffffff;
+    text-shadow: 1px 2px 3px black;
+}
+
+.containerDivDetail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 500px;
+    border-radius: 15px;
+}
+
+.title{
+    font-size: 30px;
+    background: #324ba3;
+    padding: 4px 15px;
+    margin: 25px 0 20px 0;
+    animation: comingFromLeft 2s;
+}
+
+@keyframes comingFromLeft {
+    0%{
+        transform: translateX(-700px);
+        opacity: 0.3;
+    }
+    90%{
+        transform: translateX(100px);
+        opacity: 0.7;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.description{
+    width: 80%;
+    font-size: 18px;
+    margin: 10px 25px;
+    padding: 5px 20px;
+    border: 2px solid #000000;
+    transition: all 1s;
+}
+
+.description:hover{
+    background: #4545acda;
+}
+
+.divData{
+    margin: 10px 0;
+    display: flex;
+    background-color: #527cc76e;
+    min-width: 40%;
+    max-width: 80%;
+    padding: 10px;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+.divData:hover{
+    animation: shake 700ms;
+    animation-delay: 500ms;
+}
+
+@keyframes shake{
+    0%{
+        transform: translateX(0);
+    }
+    33%{
+        transform: translateX(-80px);
+    }
+    66%{
+        transform: translateX(80px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+
+.platform{
+    margin: 0;
+    padding: 3px 8px;
+}

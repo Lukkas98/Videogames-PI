@@ -1,0 +1,12 @@
+.h1{
+    color: black;
+    font-variant: small-caps;
+    text-shadow: 2px 1px 0 white;
+    font-size: 45px;
+    padding: 10px 30px;
+}
+  
+#container {
+    margin: 50px auto;
+}
+    

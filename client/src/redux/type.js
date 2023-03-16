@@ -1,0 +1,15 @@
+const GET_GENRES = "GET_GENRES"
+const GET_ALLGAMES = "GET_ALLGAMES";
+const CREATE_GAME = "CREATE_GAME";
+const FILTER = "FILTER";
+const ORDER = "ORDER";
+const SEARCH = "SEARCH"
+
+export {
+    GET_ALLGAMES,
+    CREATE_GAME,
+    GET_GENRES,
+    FILTER,
+    ORDER,
+    SEARCH
+}
