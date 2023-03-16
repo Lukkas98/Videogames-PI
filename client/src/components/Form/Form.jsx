@@ -65,7 +65,7 @@ export default function Form(){
     const onSubmit = async (e)=>{
         try {
             e.preventDefault();
-            const {data} = await axios.post("http://localhost:3001/videogames", gameData);
+            const {data} = await axios.post("/videogames", gameData);
             
             dispatch(createGame(data));
             setGameData(objForState)

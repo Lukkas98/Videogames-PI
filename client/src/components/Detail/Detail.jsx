@@ -12,7 +12,7 @@ export default function Detail(){
 
     useEffect(()=>{
         async function gameData(){
-            const {data} = await axios(`http://localhost:3001/videogames/${id}`);
+            const {data} = await axios(`/videogames/${id}`);
             setGame(data);
         }
         gameData();

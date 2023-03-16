@@ -3,7 +3,7 @@ import { GET_ALLGAMES, CREATE_GAME, GET_GENRES, ORDER, FILTER, SEARCH } from "./
 
 export const getAllGames = ()=>{
     return async (dispatch)=>{
-        const {data} = await axios("http://localhost:3001/videogames")
+        const {data} = await axios("/videogames")
         dispatch({
             type: GET_ALLGAMES,
             payload: data
@@ -20,7 +20,7 @@ export const createGame = (game)=>{
 
 export const getAllGenres = ()=>{
     return async (dispatch)=>{
-        const {data} = await axios("http://localhost:3001/videogames/genres")
+        const {data} = await axios("/videogames/genres")
         dispatch({
             type: GET_GENRES,
             payload: data
@@ -31,7 +31,7 @@ export const getAllGenres = ()=>{
 export const searchByName = (name)=>{
     return async (dispatch)=>{
         try {
-            const {data} = await axios(`http://localhost:3001/videogames?name=${name}`)
+            const {data} = await axios(`/videogames?name=${name}`)
             dispatch({
                 type: SEARCH,
                 payload: data
