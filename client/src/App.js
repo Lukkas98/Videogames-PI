@@ -9,6 +9,7 @@ import { filterGames, getAllGames, getAllGenres, orderGames, searchByName } from
 import Landing from './components/Landing/Landing.jsx';
 
 import imageLanding from "./assets/images/FondoLanding.jpg"
+import Error404 from './components/Error404/Error404.jsx';
 
 function App() {
   let body = document.querySelector("body");
@@ -77,6 +78,7 @@ function App() {
       }
       
       <Routes>
+        <Route path="*" element={<Error404/>} />
         <Route path='/' element={<Landing />} />
         <Route path="/home" element={<HomePage videogames={videogames} filter={filter} order={order} error={error}/>}/>
         <Route path='/create' element={<Form />}/>
