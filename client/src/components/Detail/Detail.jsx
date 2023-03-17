@@ -16,6 +16,10 @@ export default function Detail(){
             setGame(data);
         }
         gameData();
+
+        return ()=>{
+            setGame({})
+        }
     },[id])
 
     //Pruebas------------------------------------------------------------

@@ -132,11 +132,10 @@ export default function Form(){
                     {gameData.genres && <span className="dataSpan">{gameData.genres + " "}</span>}
                     
                     {
-                        errors.name || errors.description || errors.genres || errors.platforms || errors.rating || errors.releaseDate ? (  
-                            <button disabled >Please Complete Form</button>
-                        ) : (
-                            <button type="submit">Create</button>
-                        )
+                        errors.name || errors.description || errors.genres || errors.platforms || errors.rating || errors.releaseDate ?  
+                        <button disabled >Please Complete Form</button>
+                         : 
+                        <button type="submit">Create</button>
                     }
                     <p>{info}</p>
                 </form>
