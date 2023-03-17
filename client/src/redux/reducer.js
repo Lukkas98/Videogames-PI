@@ -11,13 +11,13 @@ export default function reducer (state = initialState, { type, payload }){
         case GET_ALLGAMES:
             return{
                 ...state,
-                allVideogames: [...state.allVideogames, ...payload],
+                allVideogames: payload
             }
 
         case CREATE_GAME:
             return{
                 ...state,
-                allVideogames: [...state.allVideogames, payload]
+                allVideogames: [payload, ...state.allVideogames]
             }
         
         case GET_GENRES:
