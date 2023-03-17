@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterGames, getAllGames, getAllGenres, orderGames, searchByName } from './redux/actions.js';
 import Landing from './components/Landing/Landing.jsx';
-import Error404 from './components/Error404/Error404.jsx';
+import Error from './components/Error/Error.jsx';
 
 import imageLanding from "./assets/images/FondoLanding.jpg"
 
@@ -65,7 +65,7 @@ function App() {
       }
       
       <Routes>
-        <Route path="*" element={<Error404 />} />
+        <Route path="*" element={<Error errorPage={true} />} />
         <Route path='/' element={<Landing />} />
         <Route path="/home" element={<HomePage videogames={videogames} filter={filter} order={order} error={error}/>}/>
         <Route path='/create' element={<Form />}/>
