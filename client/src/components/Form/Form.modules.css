@@ -17,13 +17,21 @@
 .form{
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     align-items: stretch;
     margin: 30px 0;
     font-size: 20px;
 }
 
-.form input{
+.form div{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 70px;
+}
+
+.form input, .form textarea{
+    resize: none;
     border: 1px solid #ffffff;
     padding: 3px 7px;
     color: #fbc736;
@@ -31,8 +39,11 @@
 }
 
 .form span{
+    position: relative;
+    top: 10px;
     font-size: 16px;
     color: #FB3640;
+    text-shadow: 1px 0px 0 #000000;
     align-self: center;
 }
 .dataSpan{
@@ -55,7 +66,6 @@
     font-weight: 600;
 }
 
-
 .divFormPage{
     display: flex;
     flex-direction: column;
@@ -71,4 +81,8 @@
     align-items: center;
     box-shadow: -1px 2px 4px 0 white;
     animation: fading 2s;
+}
+
+.form input[type="date"]::-webkit-calendar-picker-indicator {
+    background-image: url("../../assets/images/calendar-svgrepo-com.svg");
 }
