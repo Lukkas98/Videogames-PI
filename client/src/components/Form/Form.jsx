@@ -100,18 +100,18 @@ export default function Form(){
         <div className="divFormPage">
             <NavLink className="link" to="/home" >BACK HOME</NavLink>
             <div className="containerForm">
-                <h2>Create a VideoGame</h2>
+                <h2 className="vintageTitle">Create a VideoGame</h2>
                 <form className="form" onSubmit={onSubmit}>
-                    <div>
-                        <input style={errors.name ? {border: "1px solid #FB3640"} : {}} onChange={handleInputChange} type="text" name="name" placeholder="Name" autoComplete="off" value={gameData.name}/> 
-                        {errors.name && <span>{errors.name}</span>}
+                    <div className="divInput">
+                        <input onChange={handleInputChange} type="text" name="name" placeholder="Name" autoComplete="off" value={gameData.name}/> 
+                        {errors.name && <span className="error">{errors.name}</span>}
                     </div>
-                    <div>
-                        <textarea style={errors.description ? {border: "1px solid #FB3640"} : {}} onChange={handleInputChange} type="text" name="description" placeholder="description" autoComplete="off" value={gameData.description}></textarea>
-                        {errors.description && <span>{errors.description}</span>}
+                    <div className="divInput">
+                        <textarea onChange={handleInputChange} type="text" name="description" placeholder="description" autoComplete="off" value={gameData.description}></textarea>
+                        {errors.description && <span className="error">{errors.description}</span>}
                     </div>
-                    <div>
-                        <select onChange={setPlatforms} style={errors.platforms ? {border: "1px solid #FB3640"} : {}} >
+                    <div className="divInput">
+                        <select onChange={setPlatforms} >
                             <option hidden value="">Platforms</option>
                             <option value="PC">PC</option>
                             <option value="XBOX 360">XBOX 360</option>
@@ -122,23 +122,23 @@ export default function Form(){
                             <option value="PLAY STATION 4">PLAY STATION 4</option>
                             <option value="PLAY STATION 5">PLAY STATION 5</option>
                         </select>
-                        {errors.platforms && <span>{errors.platforms}</span>}
-                        {gameData.platforms && <span className="dataSpan" >{gameData.platforms + " "} </span>}
+                        {errors.platforms && <span className="error">{errors.platforms}</span>}
+                        {gameData.platforms.length > 0 && <span className="dataSpan" >{gameData.platforms + " "} </span>}
                     </div>
-                    <div>
+                    <div className="divInput">
                         <input onChange={handleInputChange} type="text" name="image" placeholder="image src" autoComplete="off" value={gameData.image} />
-                        {errors.image && <span>{errors.image}</span>}
+                        {errors.image && <span className="error">{errors.image}</span>}
                     </div>
-                    <div>
-                        <input style={errors.releaseDate ? {border: "1px solid #FB3640"} : {}} onChange={handleInputChange} type="date" name="releaseDate" placeholder="releaseDate" value={gameData.releaseDate}/>
-                        {errors.releaseDate && <span>{errors.releaseDate}</span> }
+                    <div className="divInput">
+                        <input onChange={handleInputChange} type="date" name="releaseDate" placeholder="releaseDate" value={gameData.releaseDate}/>
+                        {errors.releaseDate && <span className="error">{errors.releaseDate}</span> }
                     </div>
-                    <div>
-                        <input style={errors.rating ? {border: "1px solid #FB3640"} : {}} onChange={handleInputChange} type="text" name="rating" placeholder="rating" value={gameData.rating}/>
-                        {errors.rating && <span>{errors.rating}</span> }
+                    <div className="divInput">
+                        <input onChange={handleInputChange} type="text" name="rating" placeholder="rating" value={gameData.rating}/>
+                        {errors.rating && <span className="error">{errors.rating}</span> }
                     </div>
-                    <div>
-                        <select style={errors.genres ? {border: "1px solid #FB3640"} : {}} onChange={setGenres} defaultValue="Genres" >
+                    <div className="divInput">
+                        <select onChange={setGenres} defaultValue="Genres" >
                             <option hidden value="">Genres</option>
                             {
                             allGenres.length && allGenres.map((genre, i) => {
@@ -146,8 +146,8 @@ export default function Form(){
                             })
                             }
                         </select>
-                        {errors.genres && <span>{errors.genres}</span> }
-                        {gameData.genres && <span className="dataSpan">{gameData.genres + " "}</span>}
+                        {errors.genres && <span className="error">{errors.genres}</span> }
+                        {gameData.genres.length > 0 && <span className="dataSpan">{gameData.genres + " "}</span>}
                     </div>
                     {
                         !formComplete ?  

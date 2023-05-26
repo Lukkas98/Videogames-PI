@@ -25,8 +25,8 @@ export default function HomePage ({videogames, filter, order, error}){
         }else{
             pagination.push(
                 <button style={{
-                    backgroundColor: "#46469e",
-                    color: "#ffffff"}}
+                    backgroundColor: "#ffc600",
+                    color: "#000000"}}
                     key={i} 
                     onClick={() => setPage(i)}>{i}
                 </button>

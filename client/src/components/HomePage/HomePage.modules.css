@@ -11,14 +11,17 @@
 }
 
 .btnsPagination button{
-    border: 1px solid #4d4c4d;
-    background: #0a2463;
-    color: #21d9d9;
+    border: 1px solid #202020;
+    background: #8c00ff;
+    color: #ffc600;
     padding: 4px 10px;
+    font-size: 20px;
+    font-family: 'VT323', monospace;
 }
 
 .btnsPagination button:hover{
-    background: #163b91;
+    background: #ffc600;
+    color: #8c00ff;
 }
 
 .divFilters{
@@ -28,15 +31,16 @@
     gap: 20px;
     width: fit-content;
     margin: 14px auto;
-    background: #094041;
+    background: #8c00ff;
     padding: 0 17px;
     justify-content: center;
     border-radius: 5px;
 }
 
 .select{
-    font-size: 18px;
-    padding: 3px 5px;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    padding: 3px 6px;
     font-weight: bold;
     text-transform: uppercase;
 }

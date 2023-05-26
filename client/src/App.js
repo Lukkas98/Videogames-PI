@@ -9,11 +9,11 @@ import { filterGames, getAllGames, getAllGenres, orderGames, searchByName } from
 import Landing from './components/Landing/Landing.jsx';
 import Error from './components/Error/Error.jsx';
 
-import imageLanding from "./assets/images/FondoLanding.jpg"
+// import imageLanding from "./assets/images/FondoLanding.jpg"
 
 function App() {
-  let body = document.querySelector("body");
-  body.style.backgroundImage = `url(${imageLanding})`
+  // let body = document.querySelector("body");
+  // body.style.backgroundImage = `url(${imageLanding})`
 
   const dispatch = useDispatch();
   const { pathname } = useLocation();

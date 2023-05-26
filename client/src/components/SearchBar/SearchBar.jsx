@@ -14,7 +14,7 @@ export default function SearchBar({ searchGame }){
         <div className="containerNav">
             
             <div>
-                <NavLink className="links" to="/home" >Home Page</NavLink>
+                <NavLink className="links" to="/">Exit</NavLink>
                 <NavLink className="links" to="/create" >create game</NavLink>
             </div>
             <div className="searchBar">

@@ -1,17 +1,21 @@
-.link{
-    text-shadow: 5px 3px 4px black;
+/* .link{
+    text-decoration: none;
+    text-shadow: 2px 1px 2px #ffffff;
     margin: 20px 0;
-    font-size: 28px;
-    color: #f0ffff;
-    background-color: #1d1c7f;
-    padding: 9px;
-    box-shadow: 0px 0px 6px 3px #00ffff87;
+    font-size: 25px;
+    font-weight: bold;
+    color: #000000;
+    background-color: #0077B6;
+    padding: 9px 20px;
+    outline: 1px solid black;
     transition: all 1.5s;
+    border-radius: 6px;
 }
 .link:hover{
-    color: #00ffff;
-    background-color: #324ba3;
-    box-shadow: 0px 0px 6px 3px #1d1c7f;
+    color: #ffffff;
+    text-shadow: 2px 1px 2px #000000;
+    background-color: #023F97;
+    outline: 1px solid #ffffff;
 }
 
 .form{
@@ -27,7 +31,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    height: 70px;
+    height: 60px;
 }
 
 .form input, .form textarea{
@@ -81,8 +85,144 @@
     align-items: center;
     box-shadow: -1px 2px 4px 0 white;
     animation: fading 2s;
-}
+} */
 
 .form input[type="date"]::-webkit-calendar-picker-indicator {
-    background-image: url("../../assets/images/calendar-svgrepo-com.svg");
+  background-image: url("../../assets/images/calendar-svgrepo-com.svg");
+}
+
+.divFormPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.link {
+    text-decoration: none;
+    color: #8c00ff;
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 6px 10px;
+    background-color: #ffdf80;
+    transition: all 700ms;
+    border-radius: 8px;
+}
+.link:hover{
+    background-color: #8c00ff;
+    color: #ffdf80;
+}
+
+.vintageTitle {
+  color: #8c00ff;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  "name description"
+  "platform genre"
+  "date rating"
+  "image image"
+  "btn btn"
+  "message message";
+  justify-items: center;
+}
+
+.form input, .form textarea {
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #ffc600;
+    background-color: transparent;
+    color: #000;
+    font-size: 16px;
+    outline: none;
+}
+.form .divInput:nth-child(2) textarea{
+    resize: none;
+    border: 1px solid #ffc600;
+}
+
+.form .error{
+    color: #fb3640;
+    font-size: 14px;
+    position: absolute;
+    bottom: 25px;
+}
+.form ,.divInput:nth-child(2) .error{
+    bottom: 5px;
+}
+
+
+.form button {
+  padding: 10px 20px;
+  background-color: #8c00ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover {
+  background-color: #6600cc;
+}
+
+.dataSpan {
+  background-color: #8c00ff;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.form p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+  grid-area: message;
+}
+
+.containerForm {
+    background-color: #ffefd5;
+    width: 80%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    display: grid;
+}
+
+.divInput{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 80px;
+    width: 70%;
+}
+.divInput:nth-child(5) .error{
+    bottom: 10px;
+}
+
+.divInput:nth-child(7){
+    grid-area: genre;
+}
+.divInput:nth-child(4){
+    grid-area: image;
+}
+.form button{
+    grid-area: btn;
 }
