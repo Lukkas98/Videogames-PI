@@ -22,8 +22,8 @@ export default function Loading() {
     <>
     <div className="tv-container" id="container">
         <div className="tv-screen">
-            <h1 className="h1">LOADING{dots}</h1>
-            <h1 className="h1">PLEASE WAIT</h1>
+            <h2 className="h2L">LOADING{dots}</h2>
+            <h2 className="h2L">PLEASE WAIT</h2>
         </div>
     </div>
     </>

@@ -1,12 +1,15 @@
-.h1{
-    color: black;
-    font-variant: small-caps;
-    text-shadow: 2px 1px 0 white;
-    font-size: 45px;
-    padding: 10px 30px;
+.h2L{
+    font-family: 'Courier New', monospace;
+    font-size: 24px;
+    color: #ffcc00;
+    text-shadow: 2px 0 4px black;
+    letter-spacing: 2px;
 }
   
 #container {
+    width: 50%;
+    border: 2px solid #ffcc00;
+    border-radius: 8px;
     margin: 50px auto;
 }
     

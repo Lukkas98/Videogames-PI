@@ -1,69 +1,252 @@
-.h1{
-    font-variant: small-caps;
-    text-shadow: 2px 1px 0 white;
-    font-size: 45px;
+.h1 {
+  text-shadow: 3px 0 3px white;
+  font-size: 38px;
 }
-  
-.p{
-    font-variant: small-caps;
-    text-shadow: 2px 1px 0 white;
-    font-weight: 800;
-    font-size: 30px;
+
+.numberTV {
+  position: absolute;
+  font-size: 50px;
+  color: #026b02;
+  top: 5px;
+  right: 20px;
 }
-  
-    
+
+.p {
+  font-variant: small-caps;
+  text-shadow: 2px 1px 0 white;
+  font-weight: 800;
+  font-size: 30px;
+}
+
 .btn {
-    background-color: #0254b3;
-    color: white;
-    padding: 8px 15px;
-    margin: 15px 0;
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.5s ease;
-    font-family: 'VT323', monospace;
-    text-shadow: 2px 1px 0 black;
+  position: absolute;
+  top: 300px;
+  background-color: #0254b3;
+  color: white;
+  padding: 8px 15px;
+  margin: 15px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  font-family: "VT323", monospace;
+  text-shadow: 2px 1px 0 black;
 }
-    
+
 .btn:hover {
-    color: #fbff06;
-    background-color: #026b02;
+  color: #fbff06;
+  background-color: #026b02;
 }
-    
-.disabled{
-    background-color: #686868;
-    cursor:not-allowed;
-}
-.disabled:hover{
-    background-color: #686868;
-}
-  
+
 .tv-container {
-    border-radius: 30px;
-    outline: 2px solid #3b3b3b;
-    padding: 35px;
-    margin: 90px auto;
-    position: relative;
-    width: fit-content;
-    height: fit-content;
-    border: 2px solid grey;
-    opacity: 0.9;
-    background: 
-    repeating-conic-gradient(#c5c5c5 0 0.0001%,#686868 0 0.0002%) 80% 20%/2000px 1000px;
-    background-blend-mode: difference;
-    animation: b .2s infinite alternate;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 2px solid grey;
+  opacity: 0.9;
+  background: repeating-conic-gradient(#b9b0b0 0 0.0001%, #494949 0 0.0002%) 60%
+    20%/2000px 1000px;
+  background-blend-mode: difference;
+  animation: b 0.2s infinite alternate;
 }
-    
+
 .tv-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
-  
-@keyframes b{
-    100% {background-position: 4% 0, 20% 10%}
+
+@keyframes b {
+  100% {
+    background-position: 4% 0, 20% 10%;
+  }
 }
-  
+
+.tv {
+  margin: 100px auto;
+  width: 400px;
+  height: 310px;
+  background-color: #000;
+  border-radius: 10px;
+  position: relative;
+}
+
+.screen {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background-color: #333;
+}
+
+.antenna {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.antenna:before,
+.antenna:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 5px;
+  height: 120px;
+  background-color: #000;
+  transform: translateX(-50%);
+}
+
+.antenna:before {
+  transform-origin: bottom;
+  transform: translateY(-120%) rotate(45deg);
+}
+
+.antenna:after {
+  transform-origin: bottom;
+  transform: translateY(-120%) rotate(-45deg);
+}
+
+.button-row {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.button {
+  width: 20px;
+  height: 10px;
+  background-color: #646464;
+}
+
+/* Mando de nintendo */
+
+.nintendo-controller {
+  margin: 20px auto;
+  width: 200px;
+  height: 90px;
+  background-color: #888;
+  border-radius: 10px;
+  border: 2px solid #c40000;
+  position: relative;
+  animation: controller 2s infinite;
+}
+
+@keyframes controller {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 1px 5px 0 black;
+  }
+  50% {
+    transform: translateY(-25px);
+    box-shadow: 0 9px 8px 0 black;
+
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 1px 5px 0 black;
+  }
+}
+
+.dpad {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  top: 55%;
+  left: 35px;
+  transform: translate(-50%, -50%);
+}
+.dpad::before,
+.dpad::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 100%;
+  background-color: #333;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dpad::before {
+  top: 0%;
+}
+
+.dpad::after {
+  transform: rotate(90deg);
+  top: 0;
+  left: 17px;
+}
+
+.buttonsC {
+  position: absolute;
+  top: 22%;
+  left: 135px;
+  transform: translateY(-50%);
+}
+
+.buttonC {
+  width: 25px;
+  height: 25px;
+  background-color: #333;
+  position: absolute;
+}
+
+.buttonC.a {
+  top: 30px;
+  left: 28px;
+  border-radius: 50%;
+}
+
+.buttonC.b {
+  top: 30px;
+  left: -3px;
+  border-radius: 50%;
+}
+
+.buttonC.selectC {
+  width: 15px;
+  height: 9px;
+  top: 40px;
+  right: 45px;
+}
+
+.buttonC.startC {
+  width: 15px;
+  height: 9px;
+  top: 40px;
+  right: 17px;
+}
+
+.buttonC.aS {
+  background: #c40000;
+  top: -3px;
+  left: 28px;
+  border-radius: 50%;
+}
+.buttonC.bS {
+  background: #c40000;
+  top: -3px;
+  left: -3px;
+  border-radius: 50%;
+}
+
+.signature {
+  position: absolute;
+  font-size: 12px;
+  left: 50%;
+  transform: translate(-50%);
+}
