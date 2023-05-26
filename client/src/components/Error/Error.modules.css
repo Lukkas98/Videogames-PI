@@ -1,14 +1,33 @@
-.divError{
-    border-radius: 20px;
-    font-size: 25px;
-    display: flex;
+.link {
+  display: inline-block;
+  color: #ffcc00;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.linkError{
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.divError {
+    padding: 20px;
     text-align: center;
-    margin: 10px 250px;
-    background: #0a2463cc;
-    color: #ef3535;
-    height: fit-content;
-    min-height: 300px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+}
+
+.errorText {
+  font-size: 25px;
+  color: #ffcc00;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+
+.errorContainer {
+  margin: 90px auto;
+  padding: 20px;
+  width: 80%;
+  background-color: #8c00ff;
+  box-shadow: 0 0 4px 1px black;
 }
