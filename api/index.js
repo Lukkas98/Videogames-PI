@@ -17,16 +17,16 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+require('dotenv').config();
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const port = process.env.PORT || 3001;
-const axios = require("axios");
 
-// the first time post "url"/genres (full the DB)
+
+// the first time post "url"/genres (full the DB)(in front)
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
   server.listen(port, async () => {
-    await axios.post(`${process.env.DEPLOY_BACK_URL}/videogames/genres`);
     console.log(`server raised in port ${port}`);
   });
 });
