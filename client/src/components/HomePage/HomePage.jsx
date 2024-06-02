@@ -1,11 +1,11 @@
 import "./HomePage.modules.css";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Cards from "../Cards/Cards";
 import { useSelector } from "react-redux";
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
 
-export default function HomePage({ videogames, filter, order, error }) {
+export default function HomePage({ videogames = [], filter, order, error }) {
   const [page, setPage] = useState(1);
   const pageSize = 15;
 
@@ -13,7 +13,8 @@ export default function HomePage({ videogames, filter, order, error }) {
   const endIndex = startIndex + pageSize;
 
   //paginado dinamico
-  const totalPages = Math.ceil((videogames.length ?? 0) / pageSize);
+  const videogamesLength = videogames.length ?? 0;
+  const totalPages = Math.ceil(videogamesLength / pageSize);
   let pagination = [];
   for (let i = 1; i <= totalPages; i++) {
     if (i !== page) {
@@ -86,10 +87,9 @@ export default function HomePage({ videogames, filter, order, error }) {
           </optgroup>
         </select>
       </div>
-      {!Array.isArray(videogames) && !error && <Loading />}
-      {Array.isArray(videogames) && !error && (
+      <Suspense key={Date.now()} fallback={<Loading />}>
         <Cards videogames={videogames.slice(startIndex, endIndex)} />
-      )}
+      </Suspense>
       {error && videogames[0].error && (
         <Error nameError={videogames[0].error} />
       )}

@@ -1,18 +1,37 @@
 import { NavLink } from "react-router-dom";
 import "./Landing.modules.css";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 export default function Landing() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const allGames = useSelector((state) => state.allVideogames);
+
+  useEffect(() => {
+    if (allGames.length) {
+      setIsLoading(false);
+    }
+  }, [allGames]);
+
   return (
     <>
       <div className="tv">
         <div className="screen">
           <div className="tv-container">
             <div className="tv-screen">
-                <span className="numberTV">3</span>
+              <span className="numberTV">3</span>
               <h1 className="h1">Press start botton</h1>
-              <NavLink to="/home" className="btn">
-                Start
-              </NavLink>
+              {!isLoading ? (
+                <NavLink to="/home" className="btn">
+                  Start
+                </NavLink>
+              ) : (
+                <div className="btn" >
+                  Loading...
+                </div>
+              )
+            }
             </div>
           </div>
         </div>
