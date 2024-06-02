@@ -31,7 +31,6 @@
 }
 .divCard:hover img {
   border: 1px solid white;
-  transform: scale(1.1);
 }
 .divCard:hover span {
   background: #ffc600;
@@ -97,7 +96,7 @@
 
 .divImage:hover .overlay {
   opacity: 0.8;
-  border-radius: 50%;
+  
   background: cadetblue;
   display: flex;
   align-items: center;

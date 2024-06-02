@@ -17,17 +17,16 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
-const port = process.env.PORT || 3001
-const cors = require("cors");
-const { addGenresToBasedata } = require('./src/controllers/getGenres.js');
+require('dotenv').config();
+const server = require("./src/app.js");
+const { conn } = require("./src/db.js");
+const port = process.env.PORT || 3001;
 
-server.use(cors())
+
+// the first time post "url"/genres (full the DB)(in front)
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: false }).then(() => {
   server.listen(port, async () => {
-    await addGenresToBasedata()
-    console.log(`server raised in port ${port}`); // eslint-disable-line no-console
+    console.log(`server raised in port ${port}`);
   });
 });
