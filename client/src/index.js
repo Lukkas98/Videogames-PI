@@ -8,7 +8,9 @@ import { Provider } from 'react-redux'
 import axios from "axios"
 
 // axios.defaults.baseURL = "http://localhost:3001"
-axios.defaults.baseURL = "https://back-videogames-fihv.onrender.com/"
+axios.defaults.baseURL = "https://videogames-pi-q4eb.onrender.com"
+
+axios.post(`/videogames/genres`)
 
 ReactDOM.render(
   <Provider store={store}>
