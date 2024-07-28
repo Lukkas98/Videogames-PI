@@ -1,9 +1,9 @@
 import Card from "../Card/Card";
-import "./Cards.modules.css";
+import style from "./Cards.module.css";
 
 export default function Cards({ videogames }) {
   return (
-    <div className="divFlex">
+    <div className={style.container}>
       {videogames.map((game, i) => (
         <Card key={i} game={game} />
       ))}

@@ -1,0 +1,78 @@
+@keyframes fading {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.divCard {
+  aspect-ratio: 9 / 16;
+  width: 200px;
+  background-color: #ffc600;
+  border: 1px solid #8c00ff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 3px 5px 7px 1px #0000009f;
+  text-align: center;
+  transition: all 500ms;
+  animation: fading 600ms;
+}
+
+.divCard:hover {
+  background-color: #8c00ff;
+  border: 1px solid #ffc600;
+  img {
+    border: 1px solid white;
+  }
+  .title {
+    color: #ffc600;
+    scale: 1.2;
+    text-shadow: 1px 0 1px #000000;
+  }
+  .genreItem {
+    background: #ffc600;
+    color: black;
+  }
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #8c00ff;
+  transition: all 700ms;
+  margin-bottom: 25px;
+  text-shadow: 1px 0 1px #ffffff;
+}
+
+.genreItem{
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #8c00ff;
+  color: #fff;
+  font-size: 0.9rem;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: default;
+  transition: all 700ms;
+}
+
+.divCard img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 30px;
+  border: 1px solid black;
+  transition: all 700ms;
+  position: relative;
+}
+
+.genres {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
