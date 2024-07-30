@@ -1,9 +1,10 @@
-import "./HomePage.modules.css";
+import styles from "./HomePage.module.css";
 import { Suspense, useState } from "react";
 import Cards from "../Cards/Cards";
 import { useSelector } from "react-redux";
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
+import BackgroundAnimation from "../backgroundAnimation/backgroundAnimation";
 
 export default function HomePage({ videogames = [], filter, order, error }) {
   const [page, setPage] = useState(1);
@@ -53,9 +54,10 @@ export default function HomePage({ videogames = [], filter, order, error }) {
   };
 
   return (
-    <>
-      <div className="divFilters">
-        <select className="select" onChange={handleOnChangeFilter}>
+    <main>
+      <BackgroundAnimation />
+      <div className={styles.divFilters}>
+        <select className={styles.select} onChange={handleOnChangeFilter}>
           <option hidden value="">
             Filter by genre
           </option>
@@ -65,7 +67,7 @@ export default function HomePage({ videogames = [], filter, order, error }) {
             </option>
           ))}
         </select>
-        <select className="select" onChange={handleOnChangeFilter}>
+        <select className={styles.select} onChange={handleOnChangeFilter}>
           <option hidden value="">
             Filter by Create or All
           </option>
@@ -73,7 +75,7 @@ export default function HomePage({ videogames = [], filter, order, error }) {
           <option value="bd">Created</option>
           <option value="api">No Created</option>
         </select>
-        <select className="select" onChange={handleOnChangeOrder}>
+        <select className={styles.select} onChange={handleOnChangeOrder}>
           <option hidden value="">
             Order
           </option>
@@ -95,8 +97,8 @@ export default function HomePage({ videogames = [], filter, order, error }) {
       )}
       {error && !videogames[0].error && <Error />}
       {!error && (
-        <div className="btnsPagination">
-          <div className="pagination">{pagination}</div>
+        <div className={styles.btnsPagination}>
+          <div className={styles.pagination}>{pagination}</div>
           {Array.isArray(videogames) &&
           videogames.slice(startIndex, endIndex).length < pageSize ? (
             totalPages === 1 ? null : (
@@ -105,7 +107,7 @@ export default function HomePage({ videogames = [], filter, order, error }) {
                   setPage(page - 1);
                 }}
               >
-                Previous Page
+                Prev Page
               </button>
             )
           ) : page === 1 ? (
@@ -123,7 +125,7 @@ export default function HomePage({ videogames = [], filter, order, error }) {
                   setPage(page - 1);
                 }}
               >
-                Previous Page
+                Prev Page
               </button>
               <button
                 onClick={() => {
@@ -136,6 +138,6 @@ export default function HomePage({ videogames = [], filter, order, error }) {
           )}
         </div>
       )}
-    </>
+    </main>
   );
 }
