@@ -3,6 +3,15 @@
   font-size: 38px;
 }
 
+.container {
+  position: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+}
+
 .numberTV {
   position: absolute;
   font-size: 50px;
@@ -13,45 +22,46 @@
 
 .p {
   font-variant: small-caps;
-  text-shadow: 2px 1px 0 white;
+  text-shadow: 2px 1px 2px #d4d4d4;
   font-weight: 800;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .btn {
   position: absolute;
   top: 300px;
   background-color: #0254b3;
+  box-shadow: #969696 2px 2px 5px 0;
   color: white;
   padding: 8px 15px;
   margin: 15px 0;
   border: none;
-  border-radius: 5px;
-  font-size: 15px;
+  border-radius: 3px;
+  font-size: 25px;
   cursor: pointer;
   transition: all 0.5s ease;
   font-family: "VT323", monospace;
   text-shadow: 2px 1px 0 black;
 }
-
 .btn:hover {
   color: #fbff06;
   background-color: #026b02;
 }
 
-.tv-container {
+.tvContainer {
   position: relative;
   width: 100%;
   height: 100%;
   border: 2px solid grey;
   opacity: 0.9;
+  border-radius: 10px;
   background: repeating-conic-gradient(#b9b0b0 0 0.0001%, #494949 0 0.0002%) 60%
     20%/2000px 1000px;
   background-blend-mode: difference;
-  animation: b 0.2s infinite alternate;
+  animation: b 0.5s infinite alternate;
 }
 
-.tv-screen {
+.tvScreen {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,9 +80,11 @@
   margin: 100px auto;
   width: 400px;
   height: 310px;
-  background-color: #000;
+  background-color: #333333;
+  box-shadow: black 6px 20px 10px 0;
   border-radius: 10px;
   position: relative;
+  outline: #000000 solid 1px;
 }
 
 .screen {
@@ -90,9 +102,10 @@
   left: 50%;
   width: 50px;
   height: 50px;
-  background-color: #000;
+  background-color: #333333;
   border-radius: 50%;
   transform: translateX(-50%);
+  z-index: -1;
 }
 
 .antenna:before,
@@ -103,13 +116,13 @@
   left: 50%;
   width: 5px;
   height: 120px;
-  background-color: #000;
+  background-color: #333333;
   transform: translateX(-50%);
 }
 
 .antenna:before {
   transform-origin: bottom;
-  transform: translateY(-120%) rotate(45deg);
+  transform: translate(-30%, -124%) rotate(45deg);
 }
 
 .antenna:after {
@@ -117,11 +130,11 @@
   transform: translateY(-120%) rotate(-45deg);
 }
 
-.button-row {
+.buttonRow {
   position: absolute;
-  bottom: 12px;
   left: 50%;
-  transform: translateX(-50%);
+  top: 93%;
+  transform: translate(-50%, 50%);
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -130,20 +143,37 @@
 .button {
   width: 20px;
   height: 10px;
-  background-color: #646464;
+  background-color: #000000;
+  box-shadow: #888 1px 1px 2px 0;
 }
 
 /* Mando de nintendo */
 
-.nintendo-controller {
+.nintendoController {
   margin: 20px auto;
   width: 200px;
   height: 90px;
-  background-color: #888;
   border-radius: 10px;
   border: 2px solid #c40000;
   position: relative;
   animation: controller 2s infinite;
+  background: rgb(136, 136, 136);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(136, 136, 136, 1) 0%,
+    rgba(88, 88, 88, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(136, 136, 136, 1) 0%,
+    rgba(88, 88, 88, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(136, 136, 136, 1) 0%,
+    rgba(88, 88, 88, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#888888",endColorstr="#585858",GradientType=1);
 }
 
 @keyframes controller {
@@ -154,7 +184,6 @@
   50% {
     transform: translateY(-25px);
     box-shadow: 0 9px 8px 0 black;
-
   }
   100% {
     transform: translateY(0);
@@ -170,25 +199,40 @@
   left: 35px;
   transform: translate(-50%, -50%);
 }
+
 .dpad::before,
 .dpad::after {
   content: "";
   position: absolute;
+  background-color: #1a1818;
+  box-shadow: 2px 2px 3px #00000080;
+}
+
+.dpad::before {
   width: 16px;
-  height: 100%;
-  background-color: #333;
+  height: 50px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.dpad::before {
-  top: 0%;
+.dpad::after {
+  width: 50px;
+  height: 16px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
 
-.dpad::after {
-  transform: rotate(90deg);
-  top: 0;
-  left: 17px;
+.fix {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 5;
+  background: #1a1818;
+  width: 16px;
+  height: 25px;
 }
 
 .buttonsC {
@@ -196,6 +240,7 @@
   top: 22%;
   left: 135px;
   transform: translateY(-50%);
+  background-color: #1a1818;
 }
 
 .buttonC {
@@ -203,18 +248,22 @@
   height: 25px;
   background-color: #333;
   position: absolute;
+  box-shadow: 2px 2px 3px #000000a1;
+  outline: #424242 solid 0.5px;
 }
 
 .buttonC.a {
   top: 30px;
   left: 28px;
   border-radius: 50%;
+  background-color: #1a1818;
 }
 
 .buttonC.b {
   top: 30px;
   left: -3px;
   border-radius: 50%;
+  background-color: #1a1818;
 }
 
 .buttonC.selectC {
@@ -222,6 +271,8 @@
   height: 9px;
   top: 40px;
   right: 45px;
+  box-shadow: 1px 1px 2px #00000080;
+  background-color: #1a1818;
 }
 
 .buttonC.startC {
@@ -229,6 +280,8 @@
   height: 9px;
   top: 40px;
   right: 17px;
+  box-shadow: 1px 1px 2px #00000080;
+  background-color: #1a1818;
 }
 
 .buttonC.aS {
@@ -236,17 +289,20 @@
   top: -3px;
   left: 28px;
   border-radius: 50%;
+  box-shadow: 2px 2px 3px #00000080;
 }
+
 .buttonC.bS {
   background: #c40000;
   top: -3px;
   left: -3px;
   border-radius: 50%;
+  box-shadow: 2px 2px 3px #00000080;
 }
 
 .signature {
   position: absolute;
-  font-size: 12px;
+  font-size: 0.9rem;
   left: 50%;
   transform: translate(-50%);
 }

@@ -1,24 +1,29 @@
-import "./Detail.modules.css";
+import styles from "./Detail.module.css";
 import axios from "axios";
 import { Suspense, useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import imgDefault from "../../assets/images/pngwing.com.png";
-import Loading from "../Loading/Loading";
+import Loading from "../../components/Loading/Loading";
+import parse from "html-react-parser";
+import BackgroundAnimation from "../../components/backgroundAnimation/backgroundAnimation";
 
 export default function Detail() {
   const { id } = useParams();
 
   return (
-    <div className="containerDivDetail">
-      <NavLink className="linkDetail" to="/home">
-        BACK HOME
-      </NavLink>
-      <div className="divDetail">
-        <Suspense key={Date.now()} fallback={<Loading />}>
-          <InfoDetail id={id} />
-        </Suspense>
+    <>
+      <BackgroundAnimation />
+      <div className={styles.containerDivDetail}>
+        <NavLink className={styles.linkDetail} to="/home">
+          BACK HOME
+        </NavLink>
+        <div className={styles.divDetail}>
+          <Suspense key={Date.now()} fallback={<Loading />}>
+            <InfoDetail id={id} />
+          </Suspense>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -55,55 +60,61 @@ function InfoDetail({ id }) {
   function startTyping() {
     setTypingText("");
     setIsTyping(true);
-    typeWriter(1);
+    typeWriter(-2);
   }
-
-  const descriptionHTML = { __html: typingText };
   //---------------------------------------------------------------------
 
   return (
-    <div className="gameDiv">
-      <div className="divTitleImage">
-        <p className="title">{game.name}</p>
-        <img className="img" src={game.image || imgDefault} alt="img" />
+    <div className={styles.gameDiv}>
+      <div className={styles.divTitleImage}>
+        <p className={styles.title}>{game.name}</p>
+        <img className={styles.img} src={game.image || imgDefault} alt="img" />
 
-        <div className="divData">
-          <p className="genresPlat">Genres:</p>
+        <div className={styles.divGenres}>
+          <p className={styles.p}>Genres:</p>
           {game.genresList
             ? game.genresList?.map((genre, i) => (
-                <span className="genre" key={i}>
+                <span className={styles.genre} key={i}>
                   {genre}
                 </span>
               ))
             : game.genres?.map((genre, i) => (
-                <span className="genre" key={i}>
+                <span className={styles.genre} key={i}>
                   {genre.name}
                 </span>
               ))}
         </div>
-        <div className="divData">
-          <p className="genresPlat">Platforms:</p>
+        <div className={styles.divPlatform}>
+          <p className={styles.p}>Platforms:</p>
           {game.id ? (
             game.platforms?.map((objPlatform, i) => (
-              <span className="platform" key={i}>
+              <span className={styles.platform} key={i}>
                 {objPlatform.platform.name}
               </span>
             ))
           ) : (
-            <p className="platform">{game.platforms}</p>
+            <p className={styles.platform}>{game.platforms}</p>
           )}
         </div>
       </div>
-      <div className="description">
+
+      <div className={styles.description}>
         {!isTyping && !typingText && (
-          <div className="btnDetail" onClick={startTyping}>
+          <div className={styles.btnDetail} onClick={startTyping}>
             See Description
           </div>
         )}
-        <span id="text" dangerouslySetInnerHTML={descriptionHTML}></span>
+        <span id="text" className={styles.text}>
+          {parse(typingText)}
+        </span>
       </div>
-      <p className="date">Release Date: {game.releaseDate}</p>
-      <p className="rating">Game Rating: {game.rating}</p>
+
+      <p className={styles.info}>
+        <span>Release Date:</span> {game.releaseDate}
+      </p>
+      <p className={styles.info}>
+        <span>Game Rating:</span> {game.rating}
+      </p>
     </div>
   );
 }

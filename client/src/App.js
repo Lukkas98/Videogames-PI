@@ -1,20 +1,15 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage.jsx';
-import Nav from './components/Nav/Nav';
-import Form from './components/Form/Form';
-import Detail from './components/Detail/Detail';
+import Nav from './views/Nav/Nav.jsx';
+import Form from './views/Form/Form.jsx';
+import Detail from './views/Detail/Detail.jsx';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterGames, getAllGames, getAllGenres, orderGames, searchByName } from './redux/actions.js';
-import Landing from './components/Landing/Landing.jsx';
+import Landing from './views/Landing/Landing.jsx';
 import Error from './components/Error/Error.jsx';
 
-// import imageLanding from "./assets/images/FondoLanding.jpg"
-
 function App() {
-  // let body = document.querySelector("body");
-  // body.style.backgroundImage = `url(${imageLanding})`
-
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 

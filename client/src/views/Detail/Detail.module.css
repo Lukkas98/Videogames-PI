@@ -1,0 +1,194 @@
+.containerDivDetail {
+  background-color: transparent;
+  padding: 20px;
+}
+
+.linkDetail {
+  text-decoration: none;
+  color: #8c00ff;
+  font-size: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 6px 10px;
+  background-color: #ffdf80;
+  transition: all 500ms;
+  border-radius: 8px;
+}
+.linkDetail:hover {
+  background-color: #8c00ff;
+  color: #ffdf80;
+}
+
+.divDetail {
+  background-color: #ff8d80ea;
+  padding: 10px 20px;
+  border: 1px solid #8c00ff;
+  border-radius: 25px;
+  box-shadow: 4px 4px 10px 2px #000000;
+  margin: 0 auto;
+  max-width: 1250px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #8c00ff;
+  padding-bottom: 20px;
+  animation: fadding 2s;
+  border-bottom: 1px solid black;
+  width: 95%;
+  text-align: center;
+  transition-duration: 500ms;
+}
+.title:hover {
+  scale: 1.2;
+}
+
+@keyframes fadding {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.img {
+  width: 90%;
+  aspect-ratio: 16/9;
+  border-radius: 50px;
+  border: 2px solid #8c00ff;
+  animation: comingFromLeft 700ms;
+  box-shadow: 0 0 10px 0.5px black;
+}
+
+@keyframes comingFromLeft {
+  from {
+    transform: translateX(-400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.divGenres,
+.divPlatform {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-self: center;
+  align-items: center;
+  animation: comingFromRight 700ms;
+  align-self: self-start;
+  & .p {
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 2px 1px 3px white;
+  }
+}
+
+@keyframes comingFromRight {
+  from {
+    transform: translateX(700px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.genre,
+.platform {
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.genre {
+  background-color: #ffc600;
+  color: #8c00ff;
+}
+
+.platform {
+  background-color: #8c00ff;
+  color: #fff;
+}
+
+.description {
+  margin: 20px 0;
+  position: relative;
+  cursor: default;
+  text-shadow: 1px 0px 2px white;
+  font-size: 20px;
+}
+
+.btnDetail {
+  background-color: #ffc600;
+  color: #8c00ff;
+  text-shadow: 1px 0px 20px #000000;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  animation: fadding 1.5s;
+  transition-duration: 400ms;
+}
+
+.btnDetail:hover {
+  background-color: #8c00ff;
+  color: #ffc600;
+}
+
+.text {
+  font-size: 1.1rem;
+  line-height: 23px;
+}
+
+.info {
+  margin-bottom: 10px;
+  cursor: default;
+  text-shadow: 1px 0px 2px white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  animation: fadding 1s;
+  & span {
+    font-weight: bold;
+  }
+}
+
+.divTitleImage {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
+}
+
+.gameDiv {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Vista tablets */
+@media (min-width: 768px) {
+  .divTitleImage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .img {
+    grid-column: 1 / 2;
+    grid-row: span 2;
+  }
+  .title {
+    grid-column: span 2;
+  }
+  .divGenres {
+    grid-column: 2 / 3;
+    align-self: self-start;
+  }
+}
