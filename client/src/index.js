@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import axios from "axios";
 
 // axios.defaults.baseURL = "http://localhost:3001";
-axios.defaults.baseURL = "https://videogames-pi-1.onrender.com"
+axios.defaults.baseURL = "https://videogames-pi-1.onrender.com";
 
 await axios.post(`/videogames/genres`);
 
