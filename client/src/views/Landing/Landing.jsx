@@ -44,7 +44,9 @@ export default function Landing() {
         </div>
       </div>
       <div className={styles.nintendoController}>
-        <div className={styles.signature}>Lucas Palma</div>
+        <div className={styles.signature}>
+          Lucas Palma {new Date().getFullYear()}
+        </div>
         <div className={styles.dpad}>
           <span className={styles.fix}></span>
         </div>

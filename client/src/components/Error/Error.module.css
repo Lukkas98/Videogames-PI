@@ -3,18 +3,20 @@
   color: #ffcc00;
   text-decoration: none;
   margin-bottom: 10px;
+  z-index: 150;
+  background: #000;
 }
 
-.linkError{
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translate(-50%);
+.linkError {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .divError {
-    padding: 20px;
-    text-align: center;
+  padding: 20px;
+  text-align: center;
 }
 
 .errorText {
