@@ -14,7 +14,6 @@ import {
 } from "./redux/actions.js";
 import Landing from "./views/Landing/Landing.jsx";
 import Error from "./components/Error/Error.jsx";
-import BackgroundAnimation from "./components/backgroundAnimation/backgroundAnimation.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -59,7 +58,6 @@ function App() {
 
   return (
     <>
-      <BackgroundAnimation />
       {pathname === "/home" && <Nav searchGame={searchGame}></Nav>}
 
       <Routes>
