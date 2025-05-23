@@ -17,11 +17,10 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-require('dotenv').config();
+require("dotenv").config();
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const port = process.env.PORT || 3001;
-
 
 // the first time post "url"/genres (full the DB)(in front)
 // Syncing all the models at once.

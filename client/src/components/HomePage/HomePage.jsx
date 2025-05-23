@@ -4,7 +4,6 @@ import Cards from "../Cards/Cards";
 import { useSelector } from "react-redux";
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
-import BackgroundAnimation from "../backgroundAnimation/backgroundAnimation";
 
 export default function HomePage({ videogames = [], filter, order, error }) {
   const [page, setPage] = useState(1);
@@ -55,7 +54,6 @@ export default function HomePage({ videogames = [], filter, order, error }) {
 
   return (
     <main>
-      <BackgroundAnimation />
       <div className={styles.divFilters}>
         <select className={styles.select} onChange={handleOnChangeFilter}>
           <option hidden value="">

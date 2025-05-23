@@ -1,8 +1,8 @@
-.container{
-    margin: 30px 40px;
-    gap: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
+.container {
+  margin: 20px 10px;
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
 }

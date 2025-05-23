@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import styles from "./Landing.module.css";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import BackgroundAnimation from "../../components/backgroundAnimation/backgroundAnimation";
 
 export default function Landing() {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +16,6 @@ export default function Landing() {
 
   return (
     <>
-      <BackgroundAnimation />
       <div className={styles.tv}>
         <div className={styles.screen}>
           <div className={styles.tvContainer}>
@@ -44,7 +42,9 @@ export default function Landing() {
         </div>
       </div>
       <div className={styles.nintendoController}>
-        <div className={styles.signature}>Lucas Palma</div>
+        <div className={styles.signature}>
+          Lucas Palma {new Date().getFullYear()}
+        </div>
         <div className={styles.dpad}>
           <span className={styles.fix}></span>
         </div>

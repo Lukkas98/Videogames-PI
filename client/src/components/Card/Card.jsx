@@ -8,17 +8,29 @@ export default function Card({ game }) {
       <h2 className={styles.title}>{game.name}</h2>
       {/* <p>Description: <span dangerouslySetInnerHTML={{__html: game.description}}></span></p> */}
       <div className={styles.img_genres}>
-        <NavLink className={styles.DivImage} to={`/detail/${game.id || game.uuid}`}>
+        <NavLink
+          className={styles.DivImage}
+          to={`/detail/${game.id || game.uuid}`}
+        >
           <img
             className={styles.imgGame}
             src={game.image || imgDefault}
             alt="img-redundant-alt"
+            loading="lazy"
           />
         </NavLink>
         <div className={styles.genres}>
           {game.hasOwnProperty("uuid")
-            ? game.genresList.map((genre, i) => <p className={styles.genreItem} key={i}>{genre}</p>)
-            : game.genres.map((genre, i) => <p className={styles.genreItem} key={i}>{genre.name}</p>)}
+            ? game.genresList.map((genre, i) => (
+                <p className={styles.genreItem} key={i}>
+                  {genre}
+                </p>
+              ))
+            : game.genres.map((genre, i) => (
+                <p className={styles.genreItem} key={i}>
+                  {genre.name}
+                </p>
+              ))}
         </div>
       </div>
     </div>
