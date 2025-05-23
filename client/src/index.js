@@ -6,16 +6,16 @@ import { BrowserRouter } from "react-router-dom";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import axios from "axios";
+import BackgroundAnimation from "./components/backgroundAnimation/backgroundAnimation";
 
 // axios.defaults.baseURL = "http://localhost:3001";
 axios.defaults.baseURL = "https://videogames-pi-1.onrender.com";
-
-await axios.post(`/videogames/genres`);
 
 const root = createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
+      <BackgroundAnimation />
       <App />
     </BrowserRouter>
   </Provider>

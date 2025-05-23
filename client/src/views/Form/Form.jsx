@@ -5,7 +5,6 @@ import validate from "./validation";
 import { createGame } from "../../redux/actions";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
-import BackgroundAnimation from "../../components/backgroundAnimation/backgroundAnimation";
 
 export default function Form() {
   const dispatch = useDispatch();
@@ -110,7 +109,6 @@ export default function Form() {
 
   return (
     <div className={styles.divFormPage}>
-      <BackgroundAnimation />
       <NavLink className={styles.link} to="/home">
         BACK HOME
       </NavLink>
@@ -159,7 +157,9 @@ export default function Form() {
               <span className={styles.error}>{errors.platforms}</span>
             )}
             {gameData.platforms.length > 0 && (
-              <span className={styles.dataSpan}>{gameData.platforms + " "} </span>
+              <span className={styles.dataSpan}>
+                {gameData.platforms + " "}
+              </span>
             )}
           </div>
           <div className={styles.divInput}>
@@ -171,7 +171,9 @@ export default function Form() {
               autoComplete="off"
               value={gameData.image}
             />
-            {errors.image && <span className={styles.error}>{errors.image}</span>}
+            {errors.image && (
+              <span className={styles.error}>{errors.image}</span>
+            )}
           </div>
           <div className={styles.divInput}>
             <input
@@ -193,7 +195,9 @@ export default function Form() {
               placeholder="rating"
               value={gameData.rating}
             />
-            {errors.rating && <span className={styles.error}>{errors.rating}</span>}
+            {errors.rating && (
+              <span className={styles.error}>{errors.rating}</span>
+            )}
           </div>
           <div className={styles.divInput}>
             <select onChange={setGenres} defaultValue="Genres">
@@ -205,7 +209,9 @@ export default function Form() {
                   return <option key={i}>{genre.name}</option>;
                 })}
             </select>
-            {errors.genres && <span className={styles.error}>{errors.genres}</span>}
+            {errors.genres && (
+              <span className={styles.error}>{errors.genres}</span>
+            )}
             {gameData.genres.length > 0 && (
               <span className={styles.dataSpan}>{gameData.genres + " "}</span>
             )}

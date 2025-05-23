@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import styles from "./Landing.module.css";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import BackgroundAnimation from "../../components/backgroundAnimation/backgroundAnimation";
 
 export default function Landing() {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +16,6 @@ export default function Landing() {
 
   return (
     <>
-      <BackgroundAnimation />
       <div className={styles.tv}>
         <div className={styles.screen}>
           <div className={styles.tvContainer}>

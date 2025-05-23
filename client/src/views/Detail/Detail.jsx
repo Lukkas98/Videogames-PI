@@ -5,14 +5,12 @@ import { NavLink, useParams } from "react-router-dom";
 import imgDefault from "../../assets/images/pngwing.com.png";
 import Loading from "../../components/Loading/Loading";
 import parse from "html-react-parser";
-import BackgroundAnimation from "../../components/backgroundAnimation/backgroundAnimation";
 
 export default function Detail() {
   const { id } = useParams();
 
   return (
     <>
-      <BackgroundAnimation />
       <div className={styles.containerDivDetail}>
         <NavLink className={styles.linkDetail} to="/home">
           BACK HOME
